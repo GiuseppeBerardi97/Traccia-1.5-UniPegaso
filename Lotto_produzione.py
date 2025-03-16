@@ -59,3 +59,15 @@ if __name__ == "__main__":
     for prodotto in quantita:
         tempo_prodotto_minuti = quantita[prodotto] * parametri[prodotto]['tempo_per_unita']
         print(f"{prodotto}: {quantita[prodotto]} unità x {parametri[prodotto]['tempo_per_unita']} min per unità = {tempo_prodotto_minuti} minuti")
+
+  # Calcolo delle ore e minuti
+    ore = tempo_totale_minuti // 60
+    minuti = tempo_totale_minuti % 60
+
+    print(f"\nIl tempo totale complessivo è: {tempo_totale_minuti} minuti ({ore} ore e {minuti} minuti)")
+
+    # Verifica se il tempo totale supera la capacità complessiva giornaliera
+    if tempo_totale_minuti > parametri["Capacita_Complessiva"]:
+        print("\nATTENZIONE: La produzione totale supera il limite di 24 ore. È necessario distribuire il carico di lavoro su più giorni.")
+    else:
+        print("\nLa produzione rientra nel limite giornaliero di 24 ore.")
