@@ -37,9 +37,36 @@ def genera_parametri_produzione():
     
     return parametri, somma_capacita_massima
 
-# Funzione per calcolare il tempo totale di produzione in minuti
+# Calcola il tempo totale di produzione in minuti, considerando tempi variabili per ogni unità di prodotto e restituisce i dettagli della produzione
+# con il tempo per ogni unità prodotta in una lista di stringhe
 def calcola_tempo_totale_produzione(quantita, parametri):
-    return sum(quantita[prodotto] * parametri[prodotto]["tempo_per_unita"] for prodotto in quantita)
+    tempo_totale = 0
+    dettagli_produzione = []
+    
+    for prodotto in quantita:
+        if prodotto == "Trivelle":
+            # Per ogni unità di trivella, il tempo per unità è casuale
+            for i in range(quantita[prodotto]):
+                tempo = random.randint(parametri[prodotto]["tempo_per_unita_min"], parametri[prodotto]["tempo_per_unita_max"])
+                tempo_totale += tempo
+                dettagli_produzione.append(f"{prodotto} {i+1}: {tempo} min")
+        elif prodotto == "Pompe":
+
+            # Per ogni unità di pompa, il tempo per unità è casuale
+            for i in range(quantita[prodotto]):
+                tempo = random.randint(parametri[prodotto]["tempo_per_unita_min"], parametri[prodotto]["tempo_per_unita_max"])
+                tempo_totale += tempo
+                dettagli_produzione.append(f"{prodotto} {i+1}: {tempo} min")
+        elif prodotto == "Compressori":
+            
+            # Per ogni unità di compressore, il tempo per unità è casuale
+            for i in range(quantita[prodotto]):
+                tempo = random.randint(parametri[prodotto]["tempo_per_unita_min"], parametri[prodotto]["tempo_per_unita_max"])
+                tempo_totale += tempo
+                dettagli_produzione.append(f"{prodotto} {i+1}: {tempo} min")
+    
+    return tempo_totale, dettagli_produzione
+
 
 if __name__ == "__main__":
     quantita = genera_quantita_produzione()
