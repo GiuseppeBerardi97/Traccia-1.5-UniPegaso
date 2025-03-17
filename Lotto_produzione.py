@@ -15,16 +15,19 @@ def genera_quantita_produzione():
 def genera_parametri_produzione():
     parametri = {
         "Pompe": {
-            "tempo_per_unita": random.randint(3, 8),  
-            "capacita_massima_giornaliera": random.randint(50, 200)  
+            "tempo_per_unita_min": 25,  # Tempo minimo per unità (25 minuti)
+            "tempo_per_unita_max": 45,  # Tempo massimo per unità (45 minuti)
+            "capacita_massima_giornaliera": random.randint(15, 50)  # Capacità massima giornaliera
         },
         "Trivelle": {
-            "tempo_per_unita": random.randint(5, 10),  
-            "capacita_massima_giornaliera": random.randint(30, 150)  
+            "tempo_per_unita_min": 35,  # Tempo minimo per unità (35 minuti)
+            "tempo_per_unita_max": 40,  # Tempo massimo per unità (40 minuti)
+            "capacita_massima_giornaliera": random.randint(10, 40)  # Capacità massima giornaliera
         },
         "Compressori": {
-            "tempo_per_unita": random.randint(4, 9),  
-            "capacita_massima_giornaliera": random.randint(40, 180)  
+            "tempo_per_unita_min": 55,  # Tempo minimo per unità (55 minuti)
+            "tempo_per_unita_max": 80,  # Tempo massimo per unità (80 minuti)
+            "capacita_massima_giornaliera": random.randint(20, 60)  # Capacità massima giornaliera
         },
         "Capacita_Complessiva": 1440  # Massimo 24 ore (1440 min) su 3 turni da 8 ore
     }
