@@ -39,6 +39,6 @@ All'interno della cartella saranno presenti i seguenti file:
 - "README.md"
 - "Lotto_produzione.py"
 
-Succesivamente, andranno eseguiti gli script con il comando:
-> python3 <NOME_SCRIPT>.py
+Succesivamente, andrà eseguito il codice con il comando:
+> python3 <NOME_CODICE>.py
 Nel caso di errore relativamente al comando verificare che il path sia giusto.
