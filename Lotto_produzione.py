@@ -67,39 +67,46 @@ def calcola_tempo_totale_produzione(quantita, parametri):
     
     return tempo_totale, dettagli_produzione
 
-
 if __name__ == "__main__":
+    # Genera casualmente la quantità di prodotti da produrre
     quantita = genera_quantita_produzione()
+    
+    # Genera i parametri di produzione e calcola la somma delle capacità massime giornaliere
     parametri, somma_capacita_massima = genera_parametri_produzione()
     
+    # Stampa la quantità giornaliera richiesta per ogni prodotto
     print("Quantità giornaliera richiesta da produrre:")
     for prodotto, qta in quantita.items():
         print(f"{prodotto}: {qta}")
     
+    # Stampa i parametri di produzione per ogni prodotto come tempo per unità e capacità massima giornaliera
     print("\nParametri di produzione (tempo in minuti):")
     for prodotto, param in parametri.items():
         if prodotto != "Capacita_Complessiva":
-            print(f"{prodotto} - Tempo per unità: {param['tempo_per_unita']} min, Capacita massima giornaliera: {param['capacita_massima_giornaliera']}")
+            print(f"{prodotto} - Tempo per unità: da {param['tempo_per_unita_min']} a {param['tempo_per_unita_max']} min, Capacita massima giornaliera: {param['capacita_massima_giornaliera']}")
         else:
             print(f"\nCapacita complessiva giornaliera: {param} minuti (massimo 24 ore)")
 
+    # Stampa la somma delle capacità massime giornaliere delle unita complessive di tutti i prodotti
     print(f"\nSomma delle capacità massime giornaliere dei prodotti: {somma_capacita_massima} unità")
 
-    tempo_totale_minuti = calcola_tempo_totale_produzione(quantita, parametri)
+    # Calcola il tempo totale di produzione e i dettagli per ogni unità prodotta
+    tempo_totale_minuti, dettagli_produzione = calcola_tempo_totale_produzione(quantita, parametri)
     
-    print("\nRiepilogo della produzione:")
-    for prodotto in quantita:
-        tempo_prodotto_minuti = quantita[prodotto] * parametri[prodotto]['tempo_per_unita']
-        print(f"{prodotto}: {quantita[prodotto]} unità x {parametri[prodotto]['tempo_per_unita']} min per unità = {tempo_prodotto_minuti} minuti")
+    # Stampa i dettagli della produzione con il tempo per ogni unità prodotta
+    print("\nDettagli della produzione (tempo per ogni unità prodotta):")
+    for dettaglio in dettagli_produzione:
+        print(dettaglio)
 
-  # Calcolo delle ore e minuti
+    # Calcola il tempo totale in ore e minuti
     ore = tempo_totale_minuti // 60
     minuti = tempo_totale_minuti % 60
 
+    # Stampa il tempo totale complessivo
     print(f"\nIl tempo totale complessivo è: {tempo_totale_minuti} minuti ({ore} ore e {minuti} minuti)")
 
-    # Verifica se il tempo totale supera la capacità complessiva giornaliera
+    # Verifica se il tempo totale supera la capacità complessiva giornaliera, in caso positivo stampa un messaggio di avviso consigliando di distribuire il carico di lavoro su più giorni
     if tempo_totale_minuti > parametri["Capacita_Complessiva"]:
-        print("\nATTENZIONE: La produzione totale supera il limite di 24 ore. È necessario distribuire il carico di lavoro su più giorni.")
+        print("\n ATTENZIONE: La produzione totale supera il limite di 24 ore. È necessario distribuire il carico di lavoro su più giorni.")
     else:
-        print("\nLa produzione rientra nel limite giornaliero di 24 ore.")
+        print("\n La produzione rientra nel limite giornaliero di 24 ore.")
