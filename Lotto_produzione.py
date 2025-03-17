@@ -1,11 +1,13 @@
 import random
 
-# Questa funzione genera casualmente la quantità di prodotti da produrre
+# Genera casualmente la quantità di prodotti da produrre 
+# utilizzando il modulo random per assegnare un numero casuale di unità
+# ad ogni tipo di prodotto all'interno di un range specifico
 def genera_quantita_produzione():
     prodotti = {
-        "Pompe": random.randint(10, 100),  # Quantità tra 10 e 100
-        "Trivelle": random.randint(5, 100),   # Quantità tra 5 e 100
-        "Compressori": random.randint(8, 150)    # Quantità tra 8 e 150
+        "Pompe": random.randint(2, 20),  # Quantità tra 2 e 20
+        "Trivelle": random.randint(2, 15),   # Quantità tra 2 e 15
+        "Compressori": random.randint(2, 30)    # Quantità tra 2 e 30
     }
     return prodotti
 
