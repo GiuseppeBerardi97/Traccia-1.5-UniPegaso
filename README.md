@@ -26,13 +26,13 @@ Per garantire il corretto funzionamento del codice, è necessario installare Pyt
 
 Python: Può essere scaricato per tutti i comuni sistemi operativi dal sito ufficiale https://www.python.org/downloads/
 
-Successivamente, apri il terminale e spostati in una cartella a scelta per scaricare i file di progetto, contenuti nella cartella Traccia1.5, utilizzando il comando seguente: git clone https://github.com/GiuseppeBerardi97/Traccia-1.5-UniPegaso.git
+Successivamente, aprire il terminale e spostarsi in una cartella a scelta per scaricare i file di progetto, utilizzando il comando seguente: git clone https://github.com/GiuseppeBerardi97/Traccia-1.5-UniPegaso.git
 
 In alternativa al comando git clone, puoi scaricare l'intero progetto in formato .zip e decomprimerlo una volta completato il download. Per farlo, clicca sul tasto "Code" in alto e nel menu che si apre seleziona "Download ZIP".
 
 ## Esecuzione
-Per poter eseguire correttamente il codice, aprire il terminale del proprio Sistema Opoerativo 
-Spostarsi all'interno della cartella clonata del progetto contenente tutti i file necessari.
+Per eseguire correttamente il codice, nel caso in cui non si disponga dell'IDE di sviluppo Visual Studio Code, è necessario aprire il terminale del proprio sistema operativo e navigare all'interno della cartella del progetto precedentemente clonata, contenente tutti i file necessari. Ad esempio:
+> cd /DIRECTORY
 
 All'interno della cartella saranno presenti i seguenti file:
 
@@ -41,4 +41,5 @@ All'interno della cartella saranno presenti i seguenti file:
 
 Succesivamente, andrà eseguito il codice con il comando:
 > python3 <NOME_CODICE>.py
+
 Nel caso di errore relativamente al comando verificare che il path sia giusto.
